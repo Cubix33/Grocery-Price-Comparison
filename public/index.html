@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grocery Price Race — Blinkit vs Instamart</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <div class="badge">CarDekho Group AI Challenge • NSUT '26</div>
+      <h1>The Great Grocery Price Race</h1>
+      <p class="subtitle">Settle the 11 PM hostel argument in one search. Compare real-time prices on Blinkit and Swiggy Instamart.</p>
+    </header>
+
+    <section class="search-card">
+      <form id="search-form">
+        <div class="input-group">
+          <label for="location-input">Delivery Location</label>
+          <input 
+            id="location-input" 
+            type="text" 
+            placeholder="e.g. NSUT Boys Hostel Block A, Dwarka, Delhi" 
+            value="NSUT Hostel, Sector 3, Dwarka, Delhi" 
+            required 
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="query-input">Grocery / Snack Item</label>
+          <div class="search-box">
+            <input 
+              id="query-input" 
+              type="text" 
+              placeholder="e.g. Maggi, Amul Butter, Coca Cola, Bread" 
+              value="Maggi" 
+              required 
+            />
+            <button type="submit" id="search-btn">
+              <span class="btn-text">Compare Prices</span>
+              <span class="spinner" id="btn-spinner"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="quick-pills">
+          <span class="pill-label">Quick searches:</span>
+          <button type="button" class="pill" data-query="Maggi">Maggi</button>
+          <button type="button" class="pill" data-query="Amul Butter">Amul Butter</button>
+          <button type="button" class="pill" data-query="Coca-Cola 750ml">Coca-Cola</button>
+          <button type="button" class="pill" data-query="Britannia Bread">Britannia Bread</button>
+          <button type="button" class="pill" data-query="Eggs">Eggs</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="status-section">
+      <div id="status-box" class="status-box hidden">
+        <p id="status-text"></p>
+      </div>
+    </section>
+
+    <main id="results-container" class="results-container">
+      <!-- Paired comparison cards rendered via JS -->
+    </main>
+
+    <footer class="footer">
+      <p>Built with FastAPI, Playwright, rapidfuzz, and AI-DLC methodology.</p>
+      <p>Zero reverse-engineering. Desktop site scraping & intelligent pack-size matching.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
