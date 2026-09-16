@@ -1,7 +1,15 @@
+import asyncio
 import os
+import sys
 from pathlib import Path
 
 import uvicorn
+
+# Fix for Playwright on Windows: Uvicorn defaults to SelectorEventLoop which
+# does not support asyncio.create_subprocess_exec. Switch to ProactorEventLoop.
+if sys.platform == "win32":
+    asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
+
 from fastapi.staticfiles import StaticFiles
 
 from app.scrapers.blinkit.parse_blinkit_listings import parse_blinkit_listings
